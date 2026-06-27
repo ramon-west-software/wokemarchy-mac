@@ -1,0 +1,57 @@
+#!/bin/bash
+
+set -e
+
+# hypr directories
+REPO_HYPR="$HOME/wokemarchy-mac/hypr"
+TARGET_HYPR="$HOME/.config/hypr"
+BACKUP_HYPR="$HOME/.config/hypr-backup-$(date +%Y%m%d_%H%M%S)"
+
+# waybar directories
+REPO_WAYBAR="$HOME/wokemarchy-mac/waybar"
+TARGET_WAYBAR="$HOME/.config/waybar"
+BACKUP_WAYBAR="$HOME/.config/waybar-backup-$(date +%Y%m%d_%H%M%S)"
+
+# nvim directories
+REPO_NVIM="$HOME/wokemarchy-mac/nvim"
+TARGET_NVIM="$HOME/.config/nvim"
+BACKUP_NVIM="$HOME/.config/nvim-backup-$(date +%Y%m%d_%H%M%S)"
+
+echo "Verifying repository location..."
+if [ ! -d REPO_HYPR]; then
+  echo "Move the repo to $HOME directory"
+fi
+
+# Install dependencies
+echo "Installing default packages..."
+sudo pacman -S alacritty base-devel bluetui btop dolphin firefox flatpak fuzzel gnome-keyring grim hyprland hyprpaper libsecret nvim polkit-gnome seahorse signal-desktop waybar
+sudo flatpak install org.chromium.Chromium io.freetubeapp.FreeTube
+
+# If directories exists, move them to backup, otherwise create them
+echo "Backing up existing hyprland configs..."
+if [ -d $TARGET_HYPR ]; then
+  mv "$TARGET_HYPR" "$BACKUP_HYPR"
+else
+  mkdir -p "$TARGET_HYPR"
+fi
+
+echo "Backing up existing waybar configs..."
+if [ -d $TARGET_WAYBAR ]; then
+  mv "$TARGET_WAYBAR" "$BACKUP_WAYBAR"
+else
+  mkdir -p "$TARGET_WAYBAR"
+fi
+
+echo "Backing up existing nvim configs..."
+if [ -d $TARGET_NVIM ]; then
+  mv "$TARGET_NVIM" "$BACKUP_NVIM"
+else
+  mkdir -p "$TARGET_NVIM"
+fi
+
+echo "Linking repo files to /.conf directories..."
+ln -sf "$REPO_HYPR" "$TARGET_HYPR"
+ln -sf "$REPO_WAYBAR" "$TARGET_WAYBAR"
+ln -sf "$REPO_NVIM" "$TARGET_NVIM"
+
+echo "Done!"
