@@ -15,7 +15,6 @@ local logout = "wlogout"
 -- ex. "alacritty -e btop" (TUI)
 local launch_resources = terminal .. " -e " .. resources
 local launch_screenshot = "cd $HOME/Pictures && " .. terminal .. " -e " .. screenshot
-local launch_messages = terminal .. " -e " .. messages
 
 -- flatpak packages (ensure these are installed or update with your own options)
 local webapp = "flatpak run org.chromium.Chromium --new-window --app="
@@ -49,7 +48,7 @@ return {
 		resources = launch_resources,
 		screenshot = launch_screenshot,
 		logout = logout,
-		messages = launch_messages,
+		messages = messages,
 		email = email,
 		calendar = calendar,
 		passwords = passwords,
