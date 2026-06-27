@@ -1,0 +1,2 @@
+# Ignore /hypr/config/variables-local.lua to prevent overwriting customizations
+hypr/config/variables-local.lua
