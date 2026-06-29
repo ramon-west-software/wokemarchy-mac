@@ -30,7 +30,7 @@
         //"custom/weather",
         "clock",
         "clock#date"
-    
+
         //"custom/gammastep"
     ],
     "modules-right": [
@@ -39,7 +39,7 @@
         "bluetooth",
         "battery",
         "pulseaudio",
-        // "wireplumber", 
+        // "wireplumber",
         "custom/screenshot_t",
         "tray",
         "custom/power"
@@ -212,7 +212,7 @@
     },
 
     "custom/power": {
-        "format": " 󰐥 ",
+        "format": "  ",
         "tooltip": false,
         "on-click": "wlogout"
     },

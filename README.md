@@ -8,6 +8,7 @@ Default keybind configurations require the following packages
   - bluetui (bluetooth TUI)
   - btop (resource manager TUI)
   - dolphin (File Explorer)
+  - extra/otf-font-awesome (font awesome icons for waybar)
   - firefox (browser)
   - flatpak (utlity to install flatpak packages)
   - fuzzel (application launcher)

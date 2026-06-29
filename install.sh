@@ -30,7 +30,7 @@ fi
 
 # Install dependencies
 echo "Installing default packages..."
-sudo pacman -S alacritty base-devel bluetui btop dolphin firefox flatpak fuzzel gnome-keyring grim hyprland hyprpaper libsecret nvim polkit-gnome seahorse signal-desktop waybar
+sudo pacman -S alacritty base-devel bluetui btop dolphin extra/otf-font-awesome firefox flatpak fuzzel gnome-keyring grim hyprland hyprpaper libsecret nvim polkit-gnome seahorse signal-desktop waybar
 sudo flatpak install org.chromium.Chromium io.freetubeapp.FreeTube
 
 # If directories exists, move them to backup, otherwise create them
