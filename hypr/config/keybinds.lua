@@ -90,9 +90,9 @@ hl.bind(SUPER_SHIFT .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 -- Switch workspaces with MOD + [0-9]
 -- Move active window to a workspace with MOD + SHIFT + [0-9]
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(SUPER .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(SUPER_SHIFT .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(SUPER .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(SUPER_SHIFT .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
@@ -105,27 +105,35 @@ hl.bind(SUPER_SHIFT .. " + S", hl.dsp.window.move({ workspace = "special:magic" 
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
+    "XF86AudioRaiseVolume",
+    hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
+    "XF86AudioLowerVolume",
+    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true }
+    "XF86AudioMute",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+    { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+    "XF86AudioMicMute",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+    { locked = true, repeating = true }
 )
+
+-- Screen brightness
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+
+-- Keyboard backlight brightness
+hl.bind(SUPER .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -d kbd_backlight -e4 -n2 set 5%+"),
+    { locked = true, repeating = true })
+hl.bind(SUPER .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -d kbd_backlight -e4 -n2 set 5%-"),
+    { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })

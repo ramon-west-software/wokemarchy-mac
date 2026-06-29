@@ -15,4 +15,7 @@ hl.on("hyprland.start", function()
     -- Core UI components
     hl.exec_cmd("waybar")
     hl.exec_cmd("hyprpaper")
+
+    -- Keyboard brightness 50%
+    hl.exec_cmd("brightnessctl -d kbd_backlight -e4 -n2 set 50%")
 end)
