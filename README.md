@@ -14,6 +14,7 @@ Default keybind configurations require the following packages
   - fuzzel (application launcher)
   - grim (screenshot tool)
   - hyprland (._.)
+  - hyprlock (lock screen)
   - hyprpaper (wallpaper manager)
   - gnome-keyring (keyring daemon)
   - seahorse (password manager)
