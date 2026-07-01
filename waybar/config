@@ -71,7 +71,7 @@
         "format":" ",
         //"on-click": "~/.config/hypr/scripts/screenshot_full",
         //"on-click-right":"~/.config/hypr/scripts/screenshot_area"
-        "on-click": "cd ~/Pictures/Screenshots/ && alacritty -e grim"
+        "on-click": "cd ~/Pictures/Screenshots/ && grim"
     },
 
     "clock#1": {
