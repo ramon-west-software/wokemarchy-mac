@@ -4,7 +4,7 @@ local SUPER = "SUPER"
 -- pacman packages (ensure these are installed or update with your own options)
 local terminal = "alacritty"
 local resources = "btop"
-local fileManager = "dolphin"
+local fileManager = "nemo"
 local browser = "firefox"
 local menu = "fuzzel"
 local messages = "signal-desktop"
