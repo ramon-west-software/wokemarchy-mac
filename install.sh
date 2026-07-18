@@ -17,7 +17,11 @@ REPO_NVIM="$HOME/wokemarchy-mac/nvim"
 TARGET_NVIM="$HOME/.config/nvim"
 BACKUP_NVIM="$HOME/.config/nvim-backup-$(date +%Y%m%d_%H%M%S)"
 
-# alacritty directories
+# sway directories
+REPO_MAKO"$HOME/wokemarchy-mac/mako"
+TARGET_MAKO"$HOME/.config/mako"
+BACKUP_MAKO"$HOME/.config/mako-backup-$(date +%Y%m%d_%H%M%S)"
+
 # alacritty directories
 REPO_ALACRITTY="$HOME/wokemarchy-mac/alacritty"
 TARGET_ALACRITTY="$HOME/.config/alacritty"
@@ -62,10 +66,22 @@ else
   mkdir -p "$TARGET_ALACRITTY"
 fi
 
+echo "Backing up existing mako configs..."
+if [ -d $TARGET_MAKO ]; then
+  mv "$TARGET_MAKO" "$BACKUP_MAKO"
+else
+  mkdir -p "$TARGET_MAKO"
+fi
+
 echo "Linking repo files to /.conf directories..."
 ln -sf "$REPO_HYPR" "$TARGET_HYPR"
 ln -sf "$REPO_WAYBAR" "$TARGET_WAYBAR"
 ln -sf "$REPO_NVIM" "$TARGET_NVIM"
 ln -sf "$REPO_ALACRITTY" "$TARGET_ALACRITTY"
+ln -sf "$REPO_MAKO" "$TARGET_MAKO"
+
+
+# grant execute permission for /hypr/.scripts files
+chmod+ ~/.config/hypr/.scripts/*
 
 echo "Done!"
