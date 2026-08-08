@@ -128,13 +128,15 @@ hl.bind(
 )
 
 -- Screen brightness
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.config/hypr/.scripts/brctl.sh sc-up"),
+    { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/.scripts/brctl.sh sc-down"),
+    { locked = true, repeating = true })
 
 -- Keyboard backlight brightness
-hl.bind(SUPER .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -d kbd_backlight -e4 -n2 set 5%+"),
+hl.bind(SUPER .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.config/hypr/.scripts/brctl.sh kb-up"),
     { locked = true, repeating = true })
-hl.bind(SUPER .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -d kbd_backlight -e4 -n2 set 5%-"),
+hl.bind(SUPER .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/.scripts/brctl.sh kb-down"),
     { locked = true, repeating = true })
 
 -- Requires playerctl
